@@ -225,11 +225,13 @@
         .bank-info-item:last-child { border-bottom: none; }
         .bank-info-item span:first-child { color: var(--gray); font-size: 0.85rem; }
         .bank-info-item span:last-child { color: var(--dark); font-weight: 600; font-size: 0.9rem; }
-        .copy-btn { background: var(--primary); color: var(--white); border: none; padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer; transition: var(--transition); }
-        .copy-btn:hover { background: var(--primary-dark); }
-        .qr-placeholder { width: 200px; height: 200px; background: var(--light); border-radius: 16px; margin: 0 auto 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px dashed rgba(0,0,0,0.1); }
-        .qr-placeholder i { font-size: 3rem; color: var(--gray); margin-bottom: 0.5rem; }
-        .qr-placeholder span { font-size: 0.8rem; color: var(--gray); }
+
+        .rekening-row { flex-wrap: wrap; gap: 0.5rem; }
+        .rekening-hidden { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+        .hidden-text { font-family: 'Courier New', monospace; font-size: 1rem; color: var(--gray); font-weight: 700; letter-spacing: 2px; user-select: none; }
+        .copy-btn { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: var(--white); border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.8rem; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; }
+        .copy-btn:hover { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26, 95, 60, 0.3); }
+        .copy-btn:active { transform: translateY(0); }
 
         /* Animations */
         .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }

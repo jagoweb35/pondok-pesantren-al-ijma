@@ -82,11 +82,13 @@
             ponpes: { title: 'Donasi Pondok Pesantren Al Ijma', rekening: '0117879011100', atasNama: 'Ponpes Al Ijma', bank: 'Bank BJB' }
         };
 
+        let currentDonationType = '';
+
         function openDonationModal(type) {
+            currentDonationType = type;
             const data = donationData[type];
             document.getElementById('modalTitle').textContent = data.title;
             document.getElementById('modalBank').textContent = data.bank;
-            document.getElementById('modalRekening').textContent = data.rekening;
             document.getElementById('modalAtasNama').textContent = data.atasNama;
             document.getElementById('donationModal').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -98,9 +100,10 @@
         }
 
         function copyToClipboard(elementId) {
-            const text = document.getElementById(elementId).textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Nomor rekening berhasil disalin!');
+            const data = donationData[currentDonationType];
+            const rekening = data.rekening;
+            navigator.clipboard.writeText(rekening).then(() => {
+                alert('✅ Nomor rekening berhasil disalin!\n\n🏦 ' + data.bank + '\n💳 ' + rekening + '\n👤 A/n: ' + data.atasNama);
             });
         }
 

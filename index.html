@@ -9,6 +9,7 @@
 <base target="_blank">
     <link rel="stylesheet" href="css/style.css">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
     <div class="loader" id="loader">
@@ -467,19 +468,20 @@
                 <h3 id="modalTitle">Donasi</h3>
                 <p>Silakan transfer ke rekening berikut</p>
             </div>
-            <div class="qr-placeholder">
-                <i class="fas fa-qrcode"></i>
-                <span>Scan QR Code</span>
-            </div>
+
             <div class="bank-info">
                 <div class="bank-info-item">
                     <span>Bank</span>
                     <span id="modalBank">Bank BRI</span>
                 </div>
-                <div class="bank-info-item">
+                <div class="bank-info-item rekening-row">
                     <span>No. Rekening</span>
-                    <span id="modalRekening">4179-01-030971-53-9</span>
-                    <button class="copy-btn" onclick="copyToClipboard('modalRekening')">Copy</button>
+                    <div class="rekening-hidden">
+                        <span id="modalRekening" class="hidden-text">•••• •••• •••• ••••</span>
+                        <button class="copy-btn" onclick="copyToClipboard('modalRekening')">
+                            <i class="fas fa-copy"></i> Salin
+                        </button>
+                    </div>
                 </div>
                 <div class="bank-info-item">
                     <span>Atas Nama</span>
