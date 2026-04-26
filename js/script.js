@@ -77,8 +77,8 @@
 
         // Donation Modal
         const donationData = {
-            yayasan: { title: 'Donasi Yayasan Al Ijma', rekening: '4179-01-030971-53-9', atasNama: 'Yayasan Islam Bani Salim samarang', bank: 'Bank BRI' },
-            mi: { title: 'Donasi MI Al Ijma', rekening: '417901000007564', atasNama: 'MI Al Ijma', bank: 'Bank BRI' },
+            yayasan: { title: 'Donasi Yayasan Al Ijma', rekening: '417901030971539', atasNama: 'Yayasan Islam Bani Salim samarang', bank: 'Bank BRI' },
+            mi: { title: 'Donasi Madrasah Diniah Takmiliah Al-Ijma', rekening: '417901049981539', atasNama: 'MDTA AL IJMA', bank: 'Bank BRI' },
             ponpes: { title: 'Donasi Pondok Pesantren Al Ijma', rekening: '0117879011100', atasNama: 'Ponpes Al Ijma', bank: 'Bank BJB' }
         };
 
