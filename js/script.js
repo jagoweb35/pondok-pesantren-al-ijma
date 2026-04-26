@@ -5,7 +5,7 @@
             }, 1500);
         });
 
-        // Navbar scroll effect
+        // Navbar scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -28,10 +28,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     navLinks.classList.remove('active');
                 }
             });
@@ -44,7 +41,6 @@
             const duration = 2000;
             const step = target / (duration / 16);
             let current = 0;
-
             const timer = setInterval(() => {
                 current += step;
                 if (current >= target) {
@@ -56,18 +52,12 @@
             }, 16);
         };
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Intersection Observer
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-
-                    // Animate counters when hero stats are visible
                     if (entry.target.classList.contains('hero-stats')) {
                         counters.forEach(counter => animateCounter(counter));
                     }
@@ -85,11 +75,38 @@
             e.target.reset();
         });
 
-        // Parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+        // Donation Modal
+        const donationData = {
+            yayasan: { title: 'Donasi Yayasan Al Ijma', rekening: '4179-01-030971-53-9', atasNama: 'Yayasan Islam Bani Salim samarang', bank: 'Bank BRI' },
+            mi: { title: 'Donasi MI Al Ijma', rekening: '417901000007564', atasNama: 'MI Al Ijma', bank: 'Bank BRI' },
+            ponpes: { title: 'Donasi Pondok Pesantren Al Ijma', rekening: '0117879011100', atasNama: 'Ponpes Al Ijma', bank: 'Bank BJB' }
+        };
+
+        function openDonationModal(type) {
+            const data = donationData[type];
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalBank').textContent = data.bank;
+            document.getElementById('modalRekening').textContent = data.rekening;
+            document.getElementById('modalAtasNama').textContent = data.atasNama;
+            document.getElementById('donationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDonationModal() {
+            document.getElementById('donationModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Nomor rekening berhasil disalin!');
+            });
+        }
+
+        // Close modal on overlay click
+        document.getElementById('donationModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('donationModal')) {
+                closeDonationModal();
             }
         });
