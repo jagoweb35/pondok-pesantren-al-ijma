@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jagoweb35.github.io/Pondok-Pesantren-Al-Ijma/sitemap.xml
