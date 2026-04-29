@@ -5,6 +5,33 @@
             }, 1500);
         });
 
+        // Dark Mode / Theme Toggle
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+
+            // Check saved theme or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                html.setAttribute('data-theme', 'dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Add click animation
+                themeToggle.style.transform = 'scale(0.85) rotate(180deg)';
+                setTimeout(() => {
+                    themeToggle.style.transform = '';
+                }, 300);
+            });
+        })();
+
         // Navbar scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
